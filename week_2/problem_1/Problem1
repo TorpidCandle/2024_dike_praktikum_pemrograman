@@ -1,0 +1,26 @@
+# include <iostream> 
+# include <string>
+using namespace std;
+
+int main() {
+    string name = "Kalam Rabbani";
+    long grossSalary = 10000000L;
+    double taxRate = 0.20;
+    int install = 500000;
+    int insur = 500000;
+
+    long taxAmount = taxRate * grossSalary;
+
+    long netSalary = grossSalary - taxAmount - install - insur;
+
+    cout << "Payslip for Employee" << endl;
+    cout << "---------------------" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Gross Salary: Rp" << grossSalary << endl;
+    cout << "Tax (20%): Rp" << taxAmount << endl;
+    cout << "Installment: Rp" << install << endl;
+    cout << "Insurance: Rp" << insur << endl;
+    cout << "Net Salary: Rp" << netSalary << endl;
+    
+    return 0;
+}
