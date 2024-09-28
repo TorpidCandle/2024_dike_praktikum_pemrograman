@@ -1,27 +1,23 @@
-# Compiler and flags
-CC = g++
-CFLAGS = -Wall -std=c++11
+# Variables
+CXX = g++
+CXXFLAGS = -Wall
+TARGET = payslip
+SRC = Problem1.cpp
 
-# Target executable
-TARGET = main
-
-# All source files
-SRCS = $(Problem1 *.cpp)
-OBJS = $(SRCS:.cpp=.o)
-
-# Default target: compile the code
+# Default target: compile the program
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+# Compile the fibonacci.cpp
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-# Rule to clean up compiled files
+# Run the program in test mode (using test.txt)
+test: $(TARGET)
+	./$(TARGET) test
+
+# Clean up the compiled files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET)
 
-# Rule to run the compiled program
-run: $(TARGET)
-	./$(TARGET)
-
-# Alias for run
-test: run
+# Phony targets to avoid conflicts
+.PHONY: all clean test
