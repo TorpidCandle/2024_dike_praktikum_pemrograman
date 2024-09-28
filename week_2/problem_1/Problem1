@@ -1,26 +1,45 @@
-# include <iostream> 
-# include <string>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
-int main() {
-    string name = "Kalam Rabbani";
-    long grossSalary = 10000000L;
-    double taxRate = 0.20;
-    int install = 500000;
-    int insur = 500000;
-
-    long taxAmount = taxRate * grossSalary;
-
-    long netSalary = grossSalary - taxAmount - install - insur;
+void generatePayslip(string name, double baseSalary, double grossPercentage, double installment, double insurance) {
+    double grossSalary = baseSalary * grossPercentage / 100.0;
+    double tax = grossSalary * 0.20;
+    double netSalary = grossSalary - tax - installment - insurance;
 
     cout << "Payslip for Employee" << endl;
     cout << "---------------------" << endl;
     cout << "Name: " << name << endl;
+    cout << fixed << setprecision(2);
     cout << "Gross Salary: Rp" << grossSalary << endl;
-    cout << "Tax (20%): Rp" << taxAmount << endl;
-    cout << "Installment: Rp" << install << endl;
-    cout << "Insurance: Rp" << insur << endl;
+    cout << "Tax (20%): Rp" << tax << endl;
+    cout << "Installment: Rp" << installment << endl;
+    cout << "Insurance: Rp" << insurance << endl;
     cout << "Net Salary: Rp" << netSalary << endl;
+    cout << "---------------------" << endl;
+}
+
+int main() {
+    string employeeName;
+    double baseSalary, grossPercentage, installment, insurance;
+
+    // Input employee details
+    cout << "Enter the employee's name: ";
+    getline(cin, employeeName);
     
+    cout << "Enter the base salary (Rp): ";
+    cin >> baseSalary;
+    
+    cout << "Enter the gross percentage (e.g., 150 for 150%): ";
+    cin >> grossPercentage;
+    
+    cout << "Enter the installment amount (Rp): ";
+    cin >> installment;
+    
+    cout << "Enter the insurance amount (Rp): ";
+    cin >> insurance;
+
+    generatePayslip(employeeName, baseSalary, grossPercentage, installment, insurance);
+
     return 0;
 }
