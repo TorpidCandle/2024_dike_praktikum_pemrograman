@@ -1,0 +1,14 @@
+Input: 4
+Output: Sum = 10
+
+Input: 10
+Output: Sum = 55
+
+Input: 6
+Output: Sum = 21
+
+Input: 8
+Output: Sum = 36
+
+Input: 3
+Output: Sum = 6
