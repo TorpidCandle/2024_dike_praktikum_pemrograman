@@ -15,4 +15,4 @@ clean:
 test: fizzbuzz 
 	@echo "Running FizzBuzz Test"
 	./fizzBuzz > output_fizzBuzz.txt
-	diff output_fizzBuzz.txt expected_fizzBuzz.txt && echo "FizzBuzz Test Passed" || echo "FizzBuzz Test Failed"
+	diff output_fizzBuzz.txt test.txt && echo "FizzBuzz Test Passed" || echo "FizzBuzz Test Failed"
